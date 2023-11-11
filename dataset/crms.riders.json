@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "65104a73e0ca9e008f768165"
+  },
+  "name": "rider",
+  "email": "rider@gmail.com",
+  "password": "$2b$10$3luAlwIFhG0CPIy8hxMeE.pLxZ8gQrLXdbQLBk/.V.Wj2qmylA5Y6",
+  "thumb": "1696162072913-person-2.jpg",
+  "phone": "01581454156",
+  "address": "Jamal khan, CTG",
+  "date": {
+    "$date": "2023-09-24T14:40:51.821Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65105dc18d459da9aa0b6e0d"
+  },
+  "name": "Allen Blackburn",
+  "email": "doraceb@mailinator.com",
+  "password": "$2b$10$wbh6UmQOrEfj19r28Zqm.ObnbytpU91nIl4/UlFHRzFEJJ3Pcy.SC",
+  "thumb": "1695571393040-avatar.png",
+  "phone": "+1 (534) 449-9151",
+  "address": "Voluptatibus in sunt",
+  "date": {
+    "$date": "2023-09-24T16:03:13.119Z"
+  },
+  "__v": 0
+}]

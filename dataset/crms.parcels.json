@@ -1,0 +1,253 @@
+[{
+  "_id": {
+    "$oid": "6513fb31ccfed5c066e7dff0"
+  },
+  "customerID": "651079d6e1ed38efdd753a26",
+  "customerName": "customer5 ",
+  "type": "Solid",
+  "weight": 1,
+  "deliveryCost": 100,
+  "totalPrice": 600,
+  "status": "Ordered",
+  "recName": "A Name",
+  "recPhone": "01856495655",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "NaN",
+  "dlvRiderID": "NaN",
+  "orderDate": {
+    "$date": "2023-09-27T09:51:45.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6513fb3accfed5c066e7e031"
+  },
+  "customerID": "651079d6e1ed38efdd753a26",
+  "customerName": "customer5 ",
+  "type": "Solid",
+  "weight": 1,
+  "deliveryCost": 100,
+  "totalPrice": 600,
+  "status": "Ondelivery",
+  "recName": "A Name",
+  "recPhone": "01856495655",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-09-27T09:51:54.740Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-09-30T06:05:44.443Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6513fb3bccfed5c066e7e036"
+  },
+  "customerID": "651079d6e1ed38efdd753a26",
+  "customerName": "customer5 ",
+  "type": "Solid",
+  "weight": 1,
+  "deliveryCost": 100,
+  "totalPrice": 600,
+  "status": "Delivered",
+  "recName": "A Name",
+  "recPhone": "01856495655",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-09-27T09:51:55.186Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-09-28T14:27:19.219Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "651967f04efef8c0b3e8b3ec"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "customer",
+  "type": "Solid",
+  "weight": 2,
+  "deliveryCost": 100,
+  "totalPrice": 800,
+  "status": "Delivered",
+  "recName": "Rohim",
+  "recPhone": "01856498744",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Mirpur, Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-10-01T12:37:04.364Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-10-01T19:35:21.748Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6519c17d84fb8faf74801bf2"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "customer",
+  "type": "Solid",
+  "weight": 2,
+  "deliveryCost": 100,
+  "totalPrice": 800,
+  "status": "Ondelivery",
+  "recName": "Rohim",
+  "recPhone": "01856498744",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Mirpur, Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-10-01T18:59:09.628Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-10-02T07:24:53.770Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "651a5d62c4ca4f6c5311ed2f"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "customer",
+  "type": "Solid",
+  "weight": 2,
+  "deliveryCost": 100,
+  "totalPrice": 800,
+  "status": "Accepted",
+  "recName": "Rohim",
+  "recPhone": "01856498744",
+  "recEmail": "example@gmail.com",
+  "recAddress": "Mirpur, Dhaka",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-10-02T06:04:18.690Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-10-02T06:04:30.123Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "651a6bc5c4ca4f6c531330ad"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Solid",
+  "weight": 3,
+  "deliveryCost": 100,
+  "totalPrice": 1900,
+  "status": "Ordered",
+  "recName": "Hayes Henson",
+  "recPhone": "+1 (737) 194-7093",
+  "recEmail": "lunoripiv@mailinator.com",
+  "recAddress": "Optio culpa fugit ",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "NaN",
+  "dlvRiderID": "NaN",
+  "orderDate": {
+    "$date": "2023-10-02T07:05:41.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a6c85c4ca4f6c531340f7"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Solid",
+  "weight": 2,
+  "deliveryCost": 100,
+  "totalPrice": 1900,
+  "status": "Ordered",
+  "recName": "Rofiq",
+  "recPhone": "0185654889",
+  "recEmail": "test@gmail.com",
+  "recAddress": "Rajshahi",
+  "sendLocation": "CTG",
+  "endLocation": "Rajshahi",
+  "payment": "Debit Card",
+  "expTime": "0",
+  "picRiderID": "NaN",
+  "dlvRiderID": "NaN",
+  "orderDate": {
+    "$date": "2023-10-02T07:08:53.673Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654e0b8789c5de1053496c1e"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Glass",
+  "note": "This is glass type parcel. So, carry carefully...",
+  "weight": 1,
+  "deliveryCost": 100,
+  "totalPrice": 700,
+  "status": "Accepted",
+  "recName": "Abdul",
+  "recPhone": "+1 (863) 618-4124",
+  "recEmail": "abdul@gmail.com",
+  "recAddress": "Jamal Khan, Chittagong",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "NaN",
+  "orderDate": {
+    "$date": "2023-11-10T10:52:55.836Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-10T11:11:36.310Z"
+  }
+}]
