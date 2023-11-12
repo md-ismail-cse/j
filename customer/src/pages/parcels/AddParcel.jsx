@@ -26,6 +26,7 @@ const AddParcel = () => {
   const [recEmail, setRecEmail] = useState("");
   const [recAddress, setRecAddress] = useState("");
   const [payment, setPayment] = useState("");
+  const [catPrice, setCatPrice] = useState(1);
 
   // GET BRANCHES
   const [branches, setBranches] = useState([]);
@@ -62,12 +63,17 @@ const AddParcel = () => {
   }, [sendLocation && endLocation]);
 
   useEffect(() => {
+    if (type !== "Glass") {
+      setCatPrice(1);
+    } else {
+      setCatPrice(1.5);
+    }
     if (parcelPrice === 0) {
       setTotalPrice(0);
     } else if (parcelPrice !== undefined) {
-      setTotalPrice(parcelPrice.price * weight + 100);
+      setTotalPrice(parcelPrice.price * weight * catPrice);
     }
-  }, [parcelPrice, sendLocation, endLocation, weight]);
+  }, [parcelPrice, sendLocation, endLocation, weight, type, catPrice]);
 
   // Get current logged customer
   const id = localStorage.getItem("cID");
@@ -215,40 +221,6 @@ const AddParcel = () => {
                       <InputAdornment position="start">kg</InputAdornment>
                     ),
                   }}
-                />
-                <TextField
-                  required
-                  fullWidth
-                  label="Parcel price"
-                  helperText="Per kilogram..."
-                  value={parcelPrice !== undefined ? parcelPrice.price : 0}
-                  InputProps={
-                    ({
-                      readOnly: true,
-                    },
-                    {
-                      startAdornment: (
-                        <InputAdornment position="start">৳</InputAdornment>
-                      ),
-                    })
-                  }
-                />
-                <TextField
-                  required
-                  fullWidth
-                  label="Delivery cost"
-                  helperText="Automatic calculate..."
-                  value="100"
-                  InputProps={
-                    ({
-                      readOnly: true,
-                    },
-                    {
-                      startAdornment: (
-                        <InputAdornment position="start">৳</InputAdornment>
-                      ),
-                    })
-                  }
                 />
                 <TextField
                   required

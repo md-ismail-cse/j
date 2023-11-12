@@ -67,7 +67,7 @@ const EditPrice = () => {
   return (
     <>
       <div className="editPrice">
-        <Title title="Edit delivery cost" />
+        <Title title="Edit delivery charge" />
         <div className="content">
           <div className="form-box">
             {laoding ? (

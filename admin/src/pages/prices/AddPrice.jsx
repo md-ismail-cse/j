@@ -63,7 +63,7 @@ const AddPrice = () => {
   return (
     <>
       <div className="addPrice">
-        <Title title="Add delivery cost" />
+        <Title title="Add delivery charge" />
         <div className="content">
           <div className="form-box">
             {laoding ? (
