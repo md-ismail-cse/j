@@ -11,6 +11,7 @@ router.post("/", async (req, res) => {
       type: req.body.type,
       note: req.body.note,
       weight: req.body.weight,
+      length: req.body.length,
       deliveryCost: req.body.deliveryCost,
       totalPrice: req.body.totalPrice,
       recName: req.body.recName,

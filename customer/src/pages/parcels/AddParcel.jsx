@@ -20,6 +20,7 @@ const AddParcel = () => {
   const [type, setType] = useState("");
   const [note, setNote] = useState("");
   const [weight, setWeight] = useState(null);
+  const [length, setLength] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [recName, setRecName] = useState("");
   const [recPhone, setRecPhone] = useState("");
@@ -27,6 +28,7 @@ const AddParcel = () => {
   const [recAddress, setRecAddress] = useState("");
   const [payment, setPayment] = useState("");
   const [catPrice, setCatPrice] = useState(1);
+  const [lengthPrice, setLengthPrice] = useState(1);
 
   // GET BRANCHES
   const [branches, setBranches] = useState([]);
@@ -63,17 +65,35 @@ const AddParcel = () => {
   }, [sendLocation && endLocation]);
 
   useEffect(() => {
-    if (type !== "Glass") {
-      setCatPrice(1);
-    } else {
+    // Category variant price
+    if (type === "Glass") {
       setCatPrice(1.5);
+    } else if (type === "Liquid") {
+      setCatPrice(2);
+    } else {
+      setCatPrice(1);
     }
+
+    // Length variant price
+    if (length !== 0) {
+      setLengthPrice(length * 5);
+    }
+
     if (parcelPrice === 0) {
       setTotalPrice(0);
     } else if (parcelPrice !== undefined) {
-      setTotalPrice(parcelPrice.price * weight * catPrice);
+      setTotalPrice(parcelPrice.price * weight * catPrice + lengthPrice);
     }
-  }, [parcelPrice, sendLocation, endLocation, weight, type, catPrice]);
+  }, [
+    parcelPrice,
+    sendLocation,
+    endLocation,
+    weight,
+    type,
+    catPrice,
+    length,
+    lengthPrice,
+  ]);
 
   // Get current logged customer
   const id = localStorage.getItem("cID");
@@ -111,6 +131,7 @@ const AddParcel = () => {
       type,
       note,
       weight,
+      length,
       deliveryCost: 100,
       totalPrice,
       recName,
@@ -219,6 +240,19 @@ const AddParcel = () => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">kg</InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  required
+                  fullWidth
+                  label="Length"
+                  type="number"
+                  value={length}
+                  onChange={(e) => setLength(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">Inch</InputAdornment>
                     ),
                   }}
                 />

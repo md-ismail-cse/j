@@ -21,6 +21,10 @@ const parcelSchema = mongoose.Schema({
     type: Number,
     require: true,
   },
+  length: {
+    type: Number,
+    require: true,
+  },
   deliveryCost: {
     type: Number,
   },

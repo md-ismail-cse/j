@@ -157,6 +157,10 @@ const SingleParsel = () => {
                         <td>{parcel.weight} kg</td>
                       </tr>
                       <tr>
+                        <th>Length:</th>
+                        <td>{parcel.length} inch</td>
+                      </tr>
+                      <tr>
                         <th>Total price:</th>
                         <td>{parcel.totalPrice} ৳</td>
                       </tr>

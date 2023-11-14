@@ -214,6 +214,10 @@ const SingleParsel = () => {
                         <td>{parcel.weight} kg</td>
                       </tr>
                       <tr>
+                        <th>Length:</th>
+                        <td>{parcel.length} inch</td>
+                      </tr>
+                      <tr>
                         <th>Total price:</th>
                         <td>{parcel.totalPrice} ৳</td>
                       </tr>
@@ -233,7 +237,11 @@ const SingleParsel = () => {
                       </tr>
                       <tr>
                         <th>Accept Date:</th>
-                        <td>{new Date(parcel.acceptTime).toLocaleString()}</td>
+                        <td>
+                          {parcel.acceptTime
+                            ? new Date(parcel.acceptTime).toLocaleString()
+                            : "NaN"}
+                        </td>
                       </tr>
                     </tbody>
                   </table>

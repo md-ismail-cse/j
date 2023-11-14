@@ -87,7 +87,7 @@
     "$oid": "651967f04efef8c0b3e8b3ec"
   },
   "customerID": "65185dbe477efaca489641e1",
-  "customerName": "customer",
+  "customerName": "Customer",
   "type": "Solid",
   "weight": 2,
   "deliveryCost": 100,
@@ -116,7 +116,7 @@
     "$oid": "6519c17d84fb8faf74801bf2"
   },
   "customerID": "65185dbe477efaca489641e1",
-  "customerName": "customer",
+  "customerName": "Customer",
   "type": "Solid",
   "weight": 2,
   "deliveryCost": 100,
@@ -145,7 +145,7 @@
     "$oid": "651a5d62c4ca4f6c5311ed2f"
   },
   "customerID": "65185dbe477efaca489641e1",
-  "customerName": "customer",
+  "customerName": "Customer",
   "type": "Solid",
   "weight": 2,
   "deliveryCost": 100,
@@ -205,7 +205,7 @@
   "weight": 2,
   "deliveryCost": 100,
   "totalPrice": 1900,
-  "status": "Ordered",
+  "status": "Accepted",
   "recName": "Rofiq",
   "recPhone": "0185654889",
   "recEmail": "test@gmail.com",
@@ -214,12 +214,15 @@
   "endLocation": "Rajshahi",
   "payment": "Debit Card",
   "expTime": "0",
-  "picRiderID": "NaN",
-  "dlvRiderID": "NaN",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
   "orderDate": {
     "$date": "2023-10-02T07:08:53.673Z"
   },
-  "__v": 0
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-11T09:51:24.130Z"
+  }
 },
 {
   "_id": {
@@ -249,5 +252,123 @@
   "__v": 0,
   "acceptTime": {
     "$date": "2023-11-10T11:11:36.310Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "654f560a0e5cefd19deea4f4"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Solid",
+  "note": "This is mobile phone",
+  "weight": 0,
+  "deliveryCost": 100,
+  "totalPrice": 100,
+  "status": "Delivered",
+  "recName": "rakib",
+  "recPhone": "01895652355",
+  "recEmail": "rakib@gmail.com",
+  "recAddress": "Jamal Khan, Chittagong",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-11-11T10:23:06.745Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-11T10:24:44.277Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "654f5af60e5cefd19def11e4"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Solid",
+  "note": "This is leptop",
+  "weight": 1,
+  "deliveryCost": 100,
+  "totalPrice": 700,
+  "status": "Delivered",
+  "recName": "rohim",
+  "recPhone": "+1 (691) 979-5468",
+  "recEmail": "rohim@gmail.com",
+  "recAddress": "Aggrabad, CTG",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "654f5a9d0e5cefd19def0b52",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-11-11T10:44:06.486Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-11T10:44:48.214Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6550a596a9148efe0343318d"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Glass",
+  "note": "Sapiente atque non d",
+  "weight": 2,
+  "deliveryCost": 100,
+  "totalPrice": 300,
+  "status": "Ordered",
+  "recName": "Ferdinand Stafford",
+  "recPhone": "+1 (779) 737-2608",
+  "recEmail": "figoxofam@mailinator.com",
+  "recAddress": "Vitae doloremque ut ",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "NaN",
+  "dlvRiderID": "NaN",
+  "orderDate": {
+    "$date": "2023-11-12T10:14:46.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6553129337dafbfe8dc86ea1"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Liquid",
+  "note": "This is liquid item.",
+  "weight": 1,
+  "length": 1,
+  "deliveryCost": 100,
+  "totalPrice": 205,
+  "status": "Accepted",
+  "recName": "abid",
+  "recPhone": "0189387349",
+  "recEmail": "abid@gmail.com",
+  "recAddress": "Jamal Khan, Chittagong",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-11-14T06:24:19.374Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-14T06:33:41.922Z"
   }
 }]
