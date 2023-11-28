@@ -13,7 +13,6 @@ import riderLogin from "./routers/riderLogin.route.js";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import allAuth from "./middleware/allAuth.js";
-import customerAuth from "./middleware/customerAuth.js";
 import adminAuth from "./middleware/adminAuth.js";
 dotenv.config();
 connectDB();
