@@ -1,7 +1,7 @@
 import Title from "../../components/title/Title";
 import { Avatar } from "@mui/material";
 import RiderParcels from "./RiderParcels";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../components/loader/Loader";
@@ -12,7 +12,11 @@ const SingleRider = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchRider = async () => {
-      const { data } = await axios.get(`/api/admin/riders/${id}`);
+      const { data } = await axios.get(`/api/admin/riders/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setRider(data);
       setLoading(true);
     };
@@ -51,11 +55,19 @@ const SingleRider = () => {
                     </tr>
                     <tr>
                       <th>Email:</th>
-                      <td>{rider.email}</td>
+                      <td className="tableLink">
+                        <Link to={"mailto:" + rider.email}>{rider.email}</Link>
+                      </td>
                     </tr>
                     <tr>
                       <th>Phone:</th>
-                      <td>{rider.phone}</td>
+                      <td className="tableLink">
+                        <Link to={"tel:" + rider.phone}>{rider.phone}</Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Gender:</th>
+                      <td>{rider.gender}</td>
                     </tr>
                     <tr>
                       <th>Address:</th>

@@ -11,7 +11,11 @@ const AddPrice = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchBranches = async () => {
-      const { data } = await axios.get("/api/admin/branches");
+      const { data } = await axios.get("/api/admin/branches", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setBranches(data);
       setLoading(true);
     };
@@ -20,6 +24,7 @@ const AddPrice = () => {
 
   const [sendLocation, setSendLocation] = useState("");
   const [endLocation, setEndLocation] = useState("");
+  const [duration, setDuration] = useState("");
   const [price, setPrice] = useState("");
 
   const submitHandler = (e) => {
@@ -27,12 +32,14 @@ const AddPrice = () => {
     let data = {
       sendLocation,
       endLocation,
+      duration,
       price,
     };
     axios
       .post("/api/admin/prices", data, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {
@@ -99,16 +106,26 @@ const AddPrice = () => {
                 <TextField
                   required
                   fullWidth
+                  label="Duration"
+                  type="number"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">Day</InputAdornment>
+                    ),
+                  }}
+                  value={duration}
+                  onChange={(e) => setDuration(e.target.value)}
+                />
+                <TextField
+                  required
+                  fullWidth
                   label="Price"
                   type="number"
-                  InputProps={
-                    ({ inputProps: { min: 0 } },
-                    {
-                      startAdornment: (
-                        <InputAdornment position="start">৳</InputAdornment>
-                      ),
-                    })
-                  }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">৳</InputAdornment>
+                    ),
+                  }}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />

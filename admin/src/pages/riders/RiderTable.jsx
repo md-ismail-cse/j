@@ -12,7 +12,11 @@ const RiderTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchRiders = async () => {
-      const { data } = await axios.get("/api/admin/riders");
+      const { data } = await axios.get("/api/admin/riders", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setRiders(data);
       setLoading(true);
     };
@@ -30,7 +34,11 @@ const RiderTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/admin/riders/${id}?thumb=${thumb}`)
+          .delete(`/api/admin/riders/${id}?thumb=${thumb}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
           .catch((error) => {
             Swal.fire({
               icon: "error",
@@ -69,11 +77,30 @@ const RiderTable = () => {
       field: "email",
       headerName: "Email",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"mailto:" + params.row.email}>{params.row.email}</Link>
+          </div>
+        );
+      },
     },
     {
       field: "phone",
       headerName: "Phone",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"tel:" + params.row.phone}>{params.row.phone}</Link>
+          </div>
+        );
+      },
+    },
+    {
+      field: "gender",
+      headerName: "Gender",
+      width: 80,
     },
     {
       field: "address",

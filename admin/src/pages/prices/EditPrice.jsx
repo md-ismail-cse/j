@@ -13,7 +13,11 @@ const EditPrice = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchBranches = async () => {
-      const { data } = await axios.get("/api/admin/branches");
+      const { data } = await axios.get("/api/admin/branches", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setBranches(data);
     };
     fatchBranches();
@@ -22,12 +26,18 @@ const EditPrice = () => {
   // GET PRICE
   const [sendLocation, setSendLocation] = useState("");
   const [endLocation, setEndLocation] = useState("");
+  const [duration, setDuration] = useState("");
   const [price, setPrice] = useState("");
   useEffect(() => {
     const fatchPrices = async () => {
-      const { data } = await axios.get(`/api/admin/prices/${id}`);
+      const { data } = await axios.get(`/api/admin/prices/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setSendLocation(data.sendLocation);
       setEndLocation(data.endLocation);
+      setDuration(data.duration);
       setPrice(data.price);
       setLoading(true);
     };
@@ -39,12 +49,14 @@ const EditPrice = () => {
     let updateData = {
       sendLocation,
       endLocation,
+      duration,
       price,
     };
     axios
       .put(`/api/admin/prices/${id}`, updateData, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {
@@ -100,6 +112,22 @@ const EditPrice = () => {
                     </MenuItem>
                   ))}
                 </TextField>
+                <TextField
+                  required
+                  fullWidth
+                  label="Duration"
+                  type="number"
+                  value={duration}
+                  onChange={(e) => setDuration(e.target.value)}
+                  InputProps={
+                    ({ inputProps: { min: 0 } },
+                    {
+                      startAdornment: (
+                        <InputAdornment position="start">Day</InputAdornment>
+                      ),
+                    })
+                  }
+                />
                 <TextField
                   required
                   fullWidth

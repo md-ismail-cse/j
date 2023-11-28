@@ -23,6 +23,10 @@ const adminSchema = mongoose.Schema({
     require: true,
     unique: true,
   },
+  gender: {
+    type: String,
+    require: true,
+  },
   address: {
     type: String,
     require: true,

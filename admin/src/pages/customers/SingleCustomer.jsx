@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/title/Title";
 import { Avatar } from "@mui/material";
 import CustomerParcels from "./CustomerParcels";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../components/loader/Loader";
 
@@ -13,7 +13,11 @@ const SingleCustomer = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${id}`);
+      const { data } = await axios.get(`/api/admin/customers/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setCustomer(data);
       setLoading(true);
     };
@@ -54,11 +58,23 @@ const SingleCustomer = () => {
                     </tr>
                     <tr>
                       <th>Email:</th>
-                      <td>{customer.email}</td>
+                      <td className="tableLink">
+                        <Link to={"mailto:" + customer.email}>
+                          {customer.email}
+                        </Link>
+                      </td>
                     </tr>
                     <tr>
                       <th>Phone:</th>
-                      <td>{customer.phone}</td>
+                      <td className="tableLink">
+                        <Link to={"tel:" + customer.phone}>
+                          {customer.phone}
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Gender:</th>
+                      <td>{customer.gender}</td>
                     </tr>
                     <tr>
                       <th>Address:</th>

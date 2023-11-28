@@ -14,7 +14,11 @@ const ChangePicture = () => {
   const id = localStorage.getItem("cID");
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${id}`);
+      const { data } = await axios.get(`/api/admin/customers/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setThumb(data.thumb);
       setLoading(true);
     };
@@ -30,6 +34,7 @@ const ChangePicture = () => {
       .put(`/api/admin/customers/${id}?cthumb=${currentThumb}`, updateData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("cToken"),
         },
       })
       .then((response) => {

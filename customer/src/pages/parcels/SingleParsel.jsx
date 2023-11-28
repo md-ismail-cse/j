@@ -14,7 +14,11 @@ const SingleParsel = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/parcels/${id}`);
+      const { data } = await axios.get(`/api/admin/parcels/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setParcel(data);
       setCustomerID(data.customerID);
       setLoading(true);
@@ -26,7 +30,11 @@ const SingleParsel = () => {
   const [customer, setCustomer] = useState({});
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${customerID}`);
+      const { data } = await axios.get(`/api/admin/customers/${customerID}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setCustomer(data);
     };
     fatchCustomer();
@@ -39,7 +47,12 @@ const SingleParsel = () => {
     if (parcel.picRiderID !== "NaN") {
       const fatchPicRider = async () => {
         const { data } = await axios.get(
-          `/api/admin/riders/${parcel.picRiderID}`
+          `/api/admin/riders/${parcel.picRiderID}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          }
         );
         setPicRider(data);
       };
@@ -48,7 +61,12 @@ const SingleParsel = () => {
     if (parcel.dlvRiderID !== "NaN") {
       const fatchDlvRider = async () => {
         const { data } = await axios.get(
-          `/api/admin/riders/${parcel.dlvRiderID}`
+          `/api/admin/riders/${parcel.dlvRiderID}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          }
         );
         setDlvRider(data);
       };
@@ -68,7 +86,11 @@ const SingleParsel = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/admin/parcels/${id}`)
+          .delete(`/api/admin/parcels/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          })
           .then((response) => {
             Swal.fire({
               icon: "success",
@@ -117,9 +139,7 @@ const SingleParsel = () => {
                       </tr>
                       <tr>
                         <th>Name:</th>
-                        <td>
-                          <Link>{customer.name}</Link>
-                        </td>
+                        <td>{customer.name}</td>
                       </tr>
                       <tr>
                         <th>Email:</th>
@@ -128,6 +148,10 @@ const SingleParsel = () => {
                       <tr>
                         <th>Phone:</th>
                         <td>{customer.phone}</td>
+                      </tr>
+                      <tr>
+                        <th>Gender:</th>
+                        <td>{customer.gender}</td>
                       </tr>
                       <tr>
                         <th>Address:</th>
@@ -219,6 +243,22 @@ const SingleParsel = () => {
                         <th>End:</th>
                         <td>{parcel.endLocation}</td>
                       </tr>
+                      <tr>
+                        <th>Duration:</th>
+                        <td>{parcel.duration} Days</td>
+                      </tr>
+                      <tr>
+                        <th>Map:</th>
+                        <td className="tableAction">
+                          <Link
+                            to={`https://www.google.com/maps/dir/${parcel.sendLocation}/${parcel.recAddress}/`}
+                            className="view"
+                            target="_blank"
+                          >
+                            <i class="ri-road-map-fill"></i>
+                          </Link>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -246,19 +286,28 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Name:</th>
+                          <td>{picRider.name}</td>
+                        </tr>
+                        <tr>
+                          <th>Email:</th>
                           <td>
-                            <Link to={"/riders/" + picRider._id}>
-                              {picRider.name}
+                            <Link to={"mailto:" + picRider.email}>
+                              {picRider.email}
                             </Link>
                           </td>
                         </tr>
                         <tr>
-                          <th>Email:</th>
-                          <td>{picRider.email}</td>
-                        </tr>
-                        <tr>
                           <th>Phone:</th>
-                          <td>{picRider.phone}</td>
+                          <td>
+                            <Link to={"tel:" + picRider.phone}>
+                              {picRider.phone}
+                            </Link>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>Gender:</th>
+                          <td>{picRider.gender}</td>
                         </tr>
                         <tr>
                           <th>Address:</th>
@@ -293,19 +342,27 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Name:</th>
+                          <td>{dlvRider.name}</td>
+                        </tr>
+                        <tr>
+                          <th>Email:</th>
                           <td>
-                            <Link to={"/riders/" + dlvRider._id}>
-                              {dlvRider.name}
+                            <Link to={"mailto:" + dlvRider.email}>
+                              {dlvRider.email}
                             </Link>
                           </td>
                         </tr>
                         <tr>
-                          <th>Email:</th>
-                          <td>{dlvRider.email}</td>
+                          <th>Phone:</th>
+                          <td>
+                            <Link to={"tel:" + dlvRider.phone}>
+                              {dlvRider.phone}
+                            </Link>
+                          </td>
                         </tr>
                         <tr>
-                          <th>Phone:</th>
-                          <td>{dlvRider.phone}</td>
+                          <th>Gender:</th>
+                          <td>{dlvRider.gender}</td>
                         </tr>
                         <tr>
                           <th>Address:</th>

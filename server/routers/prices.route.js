@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
     const newPriec = new Prices({
       sendLocation: req.body.sendLocation,
       endLocation: req.body.endLocation,
+      duration: req.body.duration,
       price: req.body.price,
     });
     await newPriec.save().then((data) => {

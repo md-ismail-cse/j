@@ -11,7 +11,11 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fatchAdmin = async () => {
-      const { data } = await axios.get(`/api/admin/admin/${id}`);
+      const { data } = await axios.get(`/api/admin/admin/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setAdmin(data);
       setLoading(true);
     };
@@ -43,6 +47,10 @@ const Profile = () => {
                   <tr>
                     <th>Phone:</th>
                     <td>{admin.phone}</td>
+                  </tr>
+                  <tr>
+                    <th>Gender:</th>
+                    <td>{admin.gender}</td>
                   </tr>
                   <tr>
                     <th>Address:</th>

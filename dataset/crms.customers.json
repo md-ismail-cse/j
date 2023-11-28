@@ -10,7 +10,8 @@
   "date": {
     "$date": "2023-09-24T16:43:23.189Z"
   },
-  "__v": 0
+  "__v": 0,
+  "gender": "Male"
 },
 {
   "_id": {
@@ -24,7 +25,8 @@
   "date": {
     "$date": "2023-09-24T18:02:55.077Z"
   },
-  "__v": 0
+  "__v": 0,
+  "gender": "Male"
 },
 {
   "_id": {
@@ -38,7 +40,8 @@
   "date": {
     "$date": "2023-09-24T18:03:02.852Z"
   },
-  "__v": 0
+  "__v": 0,
+  "gender": "Male"
 },
 {
   "_id": {
@@ -52,6 +55,39 @@
   "address": "Jamal Khan, CTG",
   "date": {
     "$date": "2023-09-30T17:41:18.826Z"
+  },
+  "__v": 0,
+  "gender": "Female"
+},
+{
+  "_id": {
+    "$oid": "6562500dcd0c51bb5a0e2284"
+  },
+  "name": "Savannah Jensen",
+  "email": "zywogida@mailinator.com",
+  "password": "$2b$10$fmGsdII.8VeF4QlsXQmpQ..bslTUj9FdePEoCZGKz453GKFfip35.",
+  "thumb": "1700941836923-avatar.png",
+  "phone": "+1 (372) 266-4271",
+  "address": "Voluptas pariatur V",
+  "gender": "Male",
+  "date": {
+    "$date": "2023-11-25T19:50:37.006Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6562512fcd0c51bb5a0e2ddb"
+  },
+  "name": "Shana Gillespie",
+  "email": "qikyn@mailinator.com",
+  "password": "$2b$10$x9pXFj.viIAka3bFkrg9.ev9JtLCc7ZiIK3WHuK05AnYs5SJmCIxW",
+  "thumb": "1700942127207-avatar.png",
+  "phone": "+1 (524) 836-1379",
+  "address": "Repellendus Non ver",
+  "gender": "Female",
+  "date": {
+    "$date": "2023-11-25T19:55:27.300Z"
   },
   "__v": 0
 }]

@@ -43,6 +43,7 @@ router.post("/", async (req, res) => {
           password: hash,
           thumb: avatar,
           phone: req.body.phone,
+          gender: req.body.gender,
           address: req.body.address,
         });
         await newRiders.save().then((data) => {

@@ -15,7 +15,11 @@ const HomeItems = () => {
   // GEL PARCELS
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setParcels(data.length);
     };
     fatchParcels();
@@ -24,7 +28,11 @@ const HomeItems = () => {
   // GEL CONTACTS
   useEffect(() => {
     const fatchContacts = async () => {
-      const { data } = await axios.get("/api/admin/contacts");
+      const { data } = await axios.get("/api/admin/contacts", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setContacts(data.length);
     };
     fatchContacts();
@@ -33,7 +41,11 @@ const HomeItems = () => {
   // GEL CUSTOMERS
   useEffect(() => {
     const fatchCustomers = async () => {
-      const { data } = await axios.get("/api/admin/customers");
+      const { data } = await axios.get("/api/admin/customers", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setCustomers(data.length);
     };
     fatchCustomers();
@@ -42,7 +54,11 @@ const HomeItems = () => {
   // GEL BRANCHES
   useEffect(() => {
     const fatchBranches = async () => {
-      const { data } = await axios.get("/api/admin/branches");
+      const { data } = await axios.get("/api/admin/branches", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setBranches(data.length);
     };
     fatchBranches();
@@ -51,7 +67,11 @@ const HomeItems = () => {
   // GEL RIDERS
   useEffect(() => {
     const fatchRiders = async () => {
-      const { data } = await axios.get("/api/admin/riders");
+      const { data } = await axios.get("/api/admin/riders", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setRiders(data.length);
     };
     fatchRiders();
@@ -60,7 +80,11 @@ const HomeItems = () => {
   // GEL ADMIN
   useEffect(() => {
     const fatchAdmin = async () => {
-      const { data } = await axios.get("/api/admin/admin");
+      const { data } = await axios.get("/api/admin/admin", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setAdmin(data.length);
       setLoading(true);
     };

@@ -13,7 +13,11 @@ const ContactTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchContacts = async () => {
-      const { data } = await axios.get("/api/admin/contacts");
+      const { data } = await axios.get("/api/admin/contacts", {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       const newContacts = data.filter((curData) => {
         return curData.customerID === id;
       });
@@ -34,13 +38,19 @@ const ContactTable = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/api/admin/contacts/${id}`).catch((error) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Contact delete field!",
+        axios
+          .delete(`/api/admin/contacts/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Contact delete field!",
+            });
           });
-        });
       }
     });
   };

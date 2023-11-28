@@ -6,7 +6,11 @@ const Navbar = () => {
   const [parcels, setParcels] = useState([]);
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       const newParcles = data.filter((curData) => {
         return curData.status !== "Delivered";
       });
@@ -19,7 +23,11 @@ const Navbar = () => {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
     const fatchContacts = async () => {
-      const { data } = await axios.get("/api/admin/contacts");
+      const { data } = await axios.get("/api/admin/contacts", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       const newContacts = data.filter((curData) => {
         return curData.read === "No";
       });
@@ -33,7 +41,11 @@ const Navbar = () => {
   const [admin, setAdmin] = useState([]);
   useEffect(() => {
     const fatchAdmin = async () => {
-      const { data } = await axios.get(`/api/admin/admin/${id}`);
+      const { data } = await axios.get(`/api/admin/admin/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setAdmin(data);
     };
     fatchAdmin();

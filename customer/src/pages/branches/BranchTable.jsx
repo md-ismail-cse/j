@@ -10,7 +10,11 @@ const BranchTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchBranches = async () => {
-      const { data } = await axios.get("/api/admin/branches");
+      const { data } = await axios.get("/api/admin/branches", {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setBranches(data);
       setLoading(true);
     };

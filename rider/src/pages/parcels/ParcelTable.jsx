@@ -14,7 +14,11 @@ const ParcelTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("rToken"),
+        },
+      });
       const newParcels = data.filter((curData) => {
         return curData.picRiderID === id || curData.dlvRiderID === id;
       });
@@ -74,10 +78,26 @@ const ParcelTable = () => {
     {
       field: "recPhone",
       headerName: "Rec_phone",
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"tel:" + params.row.recPhone}>{params.row.recPhone}</Link>
+          </div>
+        );
+      },
     },
     {
       field: "recEmail",
       headerName: "Rec_email",
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"mailto:" + params.row.recEmail}>
+              {params.row.recEmail}
+            </Link>
+          </div>
+        );
+      },
     },
     {
       field: "recAddress",

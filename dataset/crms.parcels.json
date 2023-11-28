@@ -371,4 +371,68 @@
   "acceptTime": {
     "$date": "2023-11-14T06:33:41.922Z"
   }
+},
+{
+  "_id": {
+    "$oid": "656249c9a2dee75cdc21dbc4"
+  },
+  "customerID": "65185dbe477efaca489641e1",
+  "customerName": "Customer",
+  "type": "Solid",
+  "note": "ad",
+  "weight": 1,
+  "length": 1,
+  "deliveryCost": 100,
+  "totalPrice": 105,
+  "status": "Accepted",
+  "recName": "dsda",
+  "recPhone": "3434",
+  "recEmail": "cdf@gmail.com",
+  "recAddress": "GEC, Chittagong",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "duration": 3,
+  "payment": "Bank Transfer",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-11-25T19:23:53.740Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-25T19:32:18.233Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65625065cd0c51bb5a0e24a8"
+  },
+  "customerID": "6562500dcd0c51bb5a0e2284",
+  "customerName": "Savannah Jensen",
+  "type": "Solid",
+  "note": "Autem ab dolor adipi",
+  "weight": 84,
+  "length": 47,
+  "deliveryCost": 100,
+  "totalPrice": 8635,
+  "status": "Accepted",
+  "recName": "Britanney Beard",
+  "recPhone": "+1 (568) 481-7487",
+  "recEmail": "dohoba@mailinator.com",
+  "recAddress": "Omnis expedita dolor",
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "duration": 3,
+  "payment": "Paypal",
+  "expTime": "0",
+  "picRiderID": "65104a73e0ca9e008f768165",
+  "dlvRiderID": "65105dc18d459da9aa0b6e0d",
+  "orderDate": {
+    "$date": "2023-11-25T19:52:05.645Z"
+  },
+  "__v": 0,
+  "acceptTime": {
+    "$date": "2023-11-25T19:56:51.111Z"
+  }
 }]

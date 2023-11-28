@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 const EditDetails = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [currentThumb, setThumb] = useState("");
@@ -17,10 +16,12 @@ const EditDetails = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fatchAdmin = async () => {
-      const { data } = await axios.get(`/api/admin/admin/${id}`);
-
+      const { data } = await axios.get(`/api/admin/admin/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setName(data.name);
-      setEmail(data.email);
       setPhone(data.phone);
       setAddress(data.address);
       setThumb(data.thumb);
@@ -41,6 +42,7 @@ const EditDetails = () => {
       .put(`/api/admin/admin/${id}?cthumb=${currentThumb}`, updateData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {
@@ -75,17 +77,6 @@ const EditDetails = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <TextField
-                  fullWidth
-                  label="Email"
-                  type="email"
-                  value={email}
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                  helperText={"Email can not be change."}
-                />
-
                 <TextField
                   required
                   fullWidth

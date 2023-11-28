@@ -13,7 +13,11 @@ const EditBranch = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchBranch = async () => {
-      const { data } = await axios.get(`/api/admin/branches/${id}`);
+      const { data } = await axios.get(`/api/admin/branches/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setBranch(data.branch);
       setAddress(data.address);
       setLoading(true);
@@ -31,6 +35,7 @@ const EditBranch = () => {
       .put(`/api/admin/branches/${id}`, updateData, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {

@@ -45,6 +45,7 @@ router.post("/", async (req, res) => {
           phone: req.body.phone,
           thumb: avatar,
           position: req.body.position,
+          gender: req.body.gender,
           address: req.body.address,
         });
         await newUser.save().then((data) => {

@@ -12,7 +12,11 @@ const AdminTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchAdmins = async () => {
-      const { data } = await axios.get("/api/admin/admin");
+      const { data } = await axios.get("/api/admin/admin", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setAdmins(data);
       setLoading(true);
     };
@@ -29,13 +33,19 @@ const AdminTable = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/api/admin/admin/${id}?thumb=${thumb}`).catch((error) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Admin deleted field!",
+        axios
+          .delete(`/api/admin/admin/${id}?thumb=${thumb}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Admin deleted field!",
+            });
           });
-        });
       }
     });
   };
@@ -58,17 +68,37 @@ const AdminTable = () => {
       field: "email",
       headerName: "Email",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"mailto:" + params.row.email}>{params.row.email}</Link>
+          </div>
+        );
+      },
     },
     {
       field: "phone",
       headerName: "Phone",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"tel:" + params.row.phone}>{params.row.phone}</Link>
+          </div>
+        );
+      },
+    },
+    {
+      field: "gender",
+      headerName: "Gender",
+      width: 80,
     },
     {
       field: "address",
       headerName: "Address",
       width: 150,
     },
+
     {
       field: "date",
       headerName: "Joining Date",

@@ -9,6 +9,9 @@ const priceSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  duration: {
+    type: Number,
+  },
   price: {
     type: Number,
     require: true,

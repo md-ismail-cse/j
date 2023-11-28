@@ -17,7 +17,11 @@ const SingleParsel = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/parcels/${id}`);
+      const { data } = await axios.get(`/api/admin/parcels/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setParcel(data);
       setCustomerID(data.customerID);
       setStatus(data.status);
@@ -32,7 +36,11 @@ const SingleParsel = () => {
   const [customer, setCustomer] = useState({});
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${customerID}`);
+      const { data } = await axios.get(`/api/admin/customers/${customerID}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setCustomer(data);
     };
     fatchCustomer();
@@ -42,7 +50,11 @@ const SingleParsel = () => {
   const [riders, setRiders] = useState([]);
   useEffect(() => {
     const fatchRiders = async () => {
-      const { data } = await axios.get("/api/admin/riders");
+      const { data } = await axios.get("/api/admin/riders", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setRiders(data);
     };
     fatchRiders();
@@ -62,7 +74,12 @@ const SingleParsel = () => {
     if (parcel.picRiderID !== "NaN") {
       const fatchPicRider = async () => {
         const { data } = await axios.get(
-          `/api/admin/riders/${parcel.picRiderID}`
+          `/api/admin/riders/${parcel.picRiderID}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          }
         );
         setPicRider(data);
       };
@@ -71,7 +88,12 @@ const SingleParsel = () => {
     if (parcel.dlvRiderID !== "NaN") {
       const fatchDlvRider = async () => {
         const { data } = await axios.get(
-          `/api/admin/riders/${parcel.dlvRiderID}`
+          `/api/admin/riders/${parcel.dlvRiderID}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          }
         );
         setDlvRider(data);
       };
@@ -92,6 +114,7 @@ const SingleParsel = () => {
       .put(`/api/admin/parcels/${id}`, updateData, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {
@@ -123,7 +146,11 @@ const SingleParsel = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/admin/parcels/${id}`)
+          .delete(`/api/admin/parcels/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
           .then((response) => {
             Swal.fire({
               icon: "success",
@@ -180,11 +207,23 @@ const SingleParsel = () => {
                       </tr>
                       <tr>
                         <th>Email:</th>
-                        <td>{customer.email}</td>
+                        <td>
+                          <Link to={"mailto:" + customer.email}>
+                            {customer.email}
+                          </Link>
+                        </td>
                       </tr>
                       <tr>
                         <th>Phone:</th>
-                        <td>{customer.phone}</td>
+                        <td>
+                          <Link to={"tel:" + customer.phone}>
+                            {customer.phone}
+                          </Link>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Gender:</th>
+                        <td>{customer.gender}</td>
                       </tr>
                       <tr>
                         <th>Address:</th>
@@ -258,11 +297,19 @@ const SingleParsel = () => {
                       </tr>
                       <tr>
                         <th>Phone:</th>
-                        <td>{parcel.recPhone}</td>
+                        <td>
+                          <Link to={"tel:" + parcel.recPhone}>
+                            {parcel.recPhone}
+                          </Link>
+                        </td>
                       </tr>
                       <tr>
                         <th>Email:</th>
-                        <td>{parcel.recEmail}</td>
+                        <td>
+                          <Link to={"mailto:" + parcel.recEmail}>
+                            {parcel.recEmail}
+                          </Link>
+                        </td>
                       </tr>
                       <tr>
                         <th>Address:</th>
@@ -275,6 +322,22 @@ const SingleParsel = () => {
                       <tr>
                         <th>End:</th>
                         <td>{parcel.endLocation}</td>
+                      </tr>
+                      <tr>
+                        <th>Duration:</th>
+                        <td>{parcel.duration} Days</td>
+                      </tr>
+                      <tr>
+                        <th>Map:</th>
+                        <td className="tableAction">
+                          <Link
+                            to={`https://www.google.com/maps/dir/${parcel.sendLocation}/${parcel.recAddress}/`}
+                            className="view"
+                            target="_blank"
+                          >
+                            <i class="ri-road-map-fill"></i>
+                          </Link>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -311,11 +374,23 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Email:</th>
-                          <td>{picRider.email}</td>
+                          <td>
+                            <Link to={"mailto:" + picRider.email}>
+                              {picRider.email}
+                            </Link>
+                          </td>
                         </tr>
                         <tr>
                           <th>Phone:</th>
-                          <td>{picRider.phone}</td>
+                          <td>
+                            <Link to={"tel:" + picRider.phone}>
+                              {picRider.phone}
+                            </Link>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Gender:</th>
+                          <td>{picRider.gender}</td>
                         </tr>
                         <tr>
                           <th>Address:</th>
@@ -358,11 +433,23 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Email:</th>
-                          <td>{dlvRider.email}</td>
+                          <td>
+                            <Link to={"mailto:" + dlvRider.email}>
+                              {dlvRider.email}
+                            </Link>
+                          </td>
                         </tr>
                         <tr>
                           <th>Phone:</th>
-                          <td>{dlvRider.phone}</td>
+                          <td>
+                            <Link to={"tel:" + dlvRider.phone}>
+                              {dlvRider.phone}
+                            </Link>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Gender:</th>
+                          <td>{dlvRider.gender}</td>
                         </tr>
                         <tr>
                           <th>Address:</th>

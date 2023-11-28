@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
       recAddress: req.body.recAddress,
       sendLocation: req.body.sendLocation,
       endLocation: req.body.endLocation,
+      duration: req.body.duration,
       payment: req.body.payment,
     });
     await newParcel.save().then((data) => {

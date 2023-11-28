@@ -12,7 +12,11 @@ const BranchTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchBranches = async () => {
-      const { data } = await axios.get("/api/admin/branches");
+      const { data } = await axios.get("/api/admin/branches", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setBranches(data);
       setLoading(true);
     };
@@ -29,13 +33,19 @@ const BranchTable = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/api/admin/branches/${id}`).catch((error) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Branch deleted field!",
+        axios
+          .delete(`/api/admin/branches/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Branch deleted field!",
+            });
           });
-        });
       }
     });
   };

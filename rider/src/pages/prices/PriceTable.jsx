@@ -11,7 +11,11 @@ const PriceTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchPrices = async () => {
-      const { data } = await axios.get("/api/admin/prices");
+      const { data } = await axios.get("/api/admin/prices", {
+        headers: {
+          Authorization: localStorage.getItem("rToken"),
+        },
+      });
       setPrices(data);
       setLoading(true);
     };
@@ -28,6 +32,12 @@ const PriceTable = () => {
       field: "endLocation",
       headerName: "End location",
       width: 150,
+    },
+    {
+      field: "duration",
+      headerName: "Duration",
+      width: 150,
+      valueGetter: (params) => `${params.row.duration} Days`,
     },
     {
       field: "price",

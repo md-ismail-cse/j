@@ -20,6 +20,10 @@ const customerSchema = mongoose.Schema({
   phone: {
     type: String,
   },
+  gender: {
+    type: String,
+    require: true,
+  },
   address: {
     type: String,
     require: true,

@@ -12,7 +12,11 @@ const HomeItems = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("rToken"),
+        },
+      });
       const newParcels = data.filter((curData) => {
         return curData.picRiderID === id || curData.dlvRiderID === id;
       });

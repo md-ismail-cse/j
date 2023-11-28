@@ -7,7 +7,6 @@ import Loader from "../../components/loader/Loader";
 
 const EditDetails = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [currentThumb, setThumb] = useState("");
@@ -17,9 +16,12 @@ const EditDetails = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${id}`);
+      const { data } = await axios.get(`/api/admin/customers/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setName(data.name);
-      setEmail(data.email);
       setPhone(data.phone);
       setAddress(data.address);
       setThumb(data.thumb);
@@ -40,6 +42,7 @@ const EditDetails = () => {
       .put(`/api/admin/customers/${id}?cthumb=${currentThumb}`, updateData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: localStorage.getItem("cToken"),
         },
       })
       .then((response) => {
@@ -74,17 +77,6 @@ const EditDetails = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <TextField
-                  fullWidth
-                  label="Email"
-                  type="email"
-                  value={email}
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                  helperText={"Email can not be change."}
-                />
-
                 <TextField
                   required
                   fullWidth

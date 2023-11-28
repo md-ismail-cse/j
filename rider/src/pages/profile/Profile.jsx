@@ -11,7 +11,11 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fatchRider = async () => {
-      const { data } = await axios.get(`/api/admin/riders/${id}`);
+      const { data } = await axios.get(`/api/admin/riders/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("rToken"),
+        },
+      });
       setRider(data);
       setLoading(true);
     };
@@ -50,6 +54,10 @@ const Profile = () => {
                   <tr>
                     <th>Phone:</th>
                     <td>{rider.phone}</td>
+                  </tr>
+                  <tr>
+                    <th>Gender:</th>
+                    <td>{rider.gender}</td>
                   </tr>
                   <tr>
                     <th>Address:</th>

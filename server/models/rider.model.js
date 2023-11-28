@@ -21,6 +21,10 @@ const riderSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  gender: {
+    type: String,
+    require: true,
+  },
   address: {
     type: String,
     require: true,

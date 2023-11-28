@@ -13,7 +13,11 @@ const SingleContact = () => {
   // Get contact details
   useEffect(() => {
     const fatchContact = async () => {
-      const { data } = await axios.get(`/api/admin/contacts/${id}`);
+      const { data } = await axios.get(`/api/admin/contacts/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setContact(data);
       setLoading(true);
     };
@@ -32,7 +36,11 @@ const SingleContact = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/admin/contacts/${id}`)
+          .delete(`/api/admin/contacts/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          })
           .then((response) => {
             Swal.fire({
               icon: "success",

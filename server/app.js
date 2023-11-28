@@ -12,6 +12,9 @@ import customerLogin from "./routers/customerLogin.route.js";
 import riderLogin from "./routers/riderLogin.route.js";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
+import allAuth from "./middleware/allAuth.js";
+import customerAuth from "./middleware/customerAuth.js";
+import adminAuth from "./middleware/adminAuth.js";
 dotenv.config();
 connectDB();
 const app = express();
@@ -21,31 +24,31 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // BRANCH API
-app.use("/api/admin/branches", branchRoute);
+app.use("/api/admin/branches", allAuth, branchRoute);
 app.use("/api/admin/branches/:id", branchRoute);
 
 // PRICE API
-app.use("/api/admin/prices", priceRoute);
+app.use("/api/admin/prices", allAuth, priceRoute);
 app.use("/api/admin/prices/:id", priceRoute);
 
 // CONTACT API
-app.use("/api/admin/contacts", contactRoute);
+app.use("/api/admin/contacts", allAuth, contactRoute);
 app.use("/api/admin/contacts/:id", contactRoute);
 
 // ADMIN API
-app.use("/api/admin/admin", userRoute);
+app.use("/api/admin/admin", adminAuth, userRoute);
 app.use("/api/admin/admin/:id", userRoute);
 
 // CUSTOMER API
-app.use("/api/admin/customers", customerRoute);
+app.use("/api/admin/customers", allAuth, customerRoute);
 app.use("/api/admin/customers/:id", customerRoute);
 
 // DELIVERY MEN API
-app.use("/api/admin/riders", riderRoute);
+app.use("/api/admin/riders", allAuth, riderRoute);
 app.use("/api/admin/riders/:id", riderRoute);
 
 // ORDER API
-app.use("/api/admin/parcels", parcelRoute);
+app.use("/api/admin/parcels", allAuth, parcelRoute);
 app.use("/api/admin/parcels/:id", parcelRoute);
 
 // ADMIN LOGIN API

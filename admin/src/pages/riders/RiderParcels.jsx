@@ -13,7 +13,11 @@ const RiderParcels = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchPrices = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       const newParcels = data.filter((curData) => {
         return curData.picRiderID === id || curData.dlvRiderID === id;
       });

@@ -17,6 +17,7 @@ const AddBranch = () => {
       .post("/api/admin/branches", data, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("aToken"),
         },
       })
       .then((response) => {

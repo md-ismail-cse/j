@@ -15,7 +15,11 @@ const AddContact = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${customerID}`);
+      const { data } = await axios.get(`/api/admin/customers/${customerID}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setCustomer(data);
       setLoading(true);
     };
@@ -36,6 +40,7 @@ const AddContact = () => {
       .post("/api/admin/contacts", data, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("cToken"),
         },
       })
       .then((response) => {

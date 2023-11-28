@@ -40,7 +40,11 @@ const ChangePassword = () => {
   const id = localStorage.getItem("aID");
   useEffect(() => {
     const fatchAdmin = async () => {
-      const { data } = await axios.get(`/api/admin/admin/${id}`);
+      const { data } = await axios.get(`/api/admin/admin/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setThumb(data.thumb);
       setEmail(data.email);
       setLoading(true);
@@ -61,6 +65,7 @@ const ChangePassword = () => {
         .put(`/api/admin/admin/${id}?cthumb=${currentThumb}`, updateData, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: localStorage.getItem("aToken"),
           },
         })
         .then((response) => {

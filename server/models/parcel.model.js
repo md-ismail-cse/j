@@ -64,6 +64,9 @@ const parcelSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  duration: {
+    type: Number,
+  },
   payment: {
     type: String,
   },

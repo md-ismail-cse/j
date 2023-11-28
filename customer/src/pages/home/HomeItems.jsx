@@ -14,7 +14,11 @@ const HomeItems = () => {
   const [customer, setCustomer] = useState([]);
   useEffect(() => {
     const fatchCustomer = async () => {
-      const { data } = await axios.get(`/api/admin/customers/${id}`);
+      const { data } = await axios.get(`/api/admin/customers/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       setCustomer(data);
       setLoading(true);
     };
@@ -24,7 +28,11 @@ const HomeItems = () => {
   // GEL PARCELS
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       const newParcels = data.filter((curData) => {
         return curData.customerID === id;
       });
@@ -36,7 +44,11 @@ const HomeItems = () => {
   // GEL CONTACTS
   useEffect(() => {
     const fatchContacts = async () => {
-      const { data } = await axios.get("/api/admin/contacts");
+      const { data } = await axios.get("/api/admin/contacts", {
+        headers: {
+          Authorization: localStorage.getItem("cToken"),
+        },
+      });
       const newContacts = data.filter((curData) => {
         return curData.customerID === id;
       });

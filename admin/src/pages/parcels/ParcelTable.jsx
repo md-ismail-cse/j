@@ -12,7 +12,11 @@ const ParcelTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchParcels = async () => {
-      const { data } = await axios.get("/api/admin/parcels");
+      const { data } = await axios.get("/api/admin/parcels", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setParcels(data);
       setLoading(true);
     };
@@ -30,13 +34,19 @@ const ParcelTable = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/api/admin/parcels/${id}`).catch((error) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Parcel delete field!",
+        axios
+          .delete(`/api/admin/parcels/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Parcel delete field!",
+            });
           });
-        });
       }
     });
   };
@@ -99,10 +109,26 @@ const ParcelTable = () => {
     {
       field: "recPhone",
       headerName: "recPhone",
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"tel:" + params.row.recPhone}>{params.row.recPhone}</Link>
+          </div>
+        );
+      },
     },
     {
       field: "recEmail",
       headerName: "recEmail",
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"mailto:" + params.row.recEmail}>
+              {params.row.recEmail}
+            </Link>
+          </div>
+        );
+      },
     },
     {
       field: "recAddress",

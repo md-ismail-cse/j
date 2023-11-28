@@ -12,7 +12,11 @@ const CustomerTable = () => {
   const [laoding, setLoading] = useState(false);
   useEffect(() => {
     const fatchCustomers = async () => {
-      const { data } = await axios.get("/api/admin/customers");
+      const { data } = await axios.get("/api/admin/customers", {
+        headers: {
+          Authorization: localStorage.getItem("aToken"),
+        },
+      });
       setCustomers(data);
       setLoading(true);
     };
@@ -30,7 +34,11 @@ const CustomerTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/admin/customers/${id}?thumb=${thumb}`)
+          .delete(`/api/admin/customers/${id}?thumb=${thumb}`, {
+            headers: {
+              Authorization: localStorage.getItem("aToken"),
+            },
+          })
           .catch((error) => {
             Swal.fire({
               icon: "error",
@@ -69,11 +77,30 @@ const CustomerTable = () => {
       field: "email",
       headerName: "Email",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"mailto:" + params.row.email}>{params.row.email}</Link>
+          </div>
+        );
+      },
     },
     {
       field: "phone",
       headerName: "Phone",
       width: 150,
+      renderCell: (params) => {
+        return (
+          <div className="tableLink">
+            <Link to={"tel:" + params.row.phone}>{params.row.phone}</Link>
+          </div>
+        );
+      },
+    },
+    {
+      field: "gender",
+      headerName: "Gender",
+      width: 80,
     },
     {
       field: "address",

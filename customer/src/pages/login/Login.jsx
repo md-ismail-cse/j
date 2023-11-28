@@ -104,6 +104,9 @@ const Login = () => {
                   <input type="submit" className="btnPrimary" value="Login" />
                 </form>
                 <Link to="/signup">Registration?</Link>
+                <Link to="http://localhost:4000/" target="_blank">
+                  Rider?
+                </Link>
               </div>
             </div>
           </div>

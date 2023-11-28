@@ -5,6 +5,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
   OutlinedInput,
   TextField,
 } from "@mui/material";
@@ -29,6 +30,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
   const [phone, setPhone] = useState("");
+  const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
 
   if (localStorage.getItem("cToken")) {
@@ -43,6 +45,7 @@ const Signup = () => {
         email,
         password,
         phone,
+        gender,
         address,
       };
       axios
@@ -179,6 +182,17 @@ const Signup = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                   />
+                  <TextField
+                    required
+                    fullWidth
+                    select
+                    label="Gender"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  >
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
+                  </TextField>
                   <TextField
                     required
                     fullWidth
