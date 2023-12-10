@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "65104a73e0ca9e008f768165"
+  },
+  "name": "rider",
+  "email": "rider@gmail.com",
+  "password": "$2b$10$3luAlwIFhG0CPIy8hxMeE.pLxZ8gQrLXdbQLBk/.V.Wj2qmylA5Y6",
+  "thumb": "1696162072913-person-2.jpg",
+  "phone": "01581454156",
+  "address": "Jamal khan, CTG",
+  "date": {
+    "$date": "2023-09-24T14:40:51.821Z"
+  },
+  "__v": 0,
+  "gender": "Male"
+},
+{
+  "_id": {
+    "$oid": "65105dc18d459da9aa0b6e0d"
+  },
+  "name": "Allen Blackburn",
+  "email": "doraceb@mailinator.com",
+  "password": "$2b$10$wbh6UmQOrEfj19r28Zqm.ObnbytpU91nIl4/UlFHRzFEJJ3Pcy.SC",
+  "thumb": "1695571393040-avatar.png",
+  "phone": "+1 (534) 449-9151",
+  "address": "Voluptatibus in sunt",
+  "date": {
+    "$date": "2023-09-24T16:03:13.119Z"
+  },
+  "__v": 0,
+  "gender": "Male"
+},
+{
+  "_id": {
+    "$oid": "654f5a9d0e5cefd19def0b52"
+  },
+  "name": "New rider",
+  "email": "newrider@gmail.com",
+  "password": "$2b$10$ub5tqbNfzXFFCZxXP/3d6unBqslNB86vNEFGxrXXLyF4Y/zf4gwQ.",
+  "thumb": "1699699357672-avatar.png",
+  "phone": "01856523645",
+  "address": "Potenga, CTG",
+  "date": {
+    "$date": "2023-11-11T10:42:37.880Z"
+  },
+  "__v": 0,
+  "gender": "Male"
+},
+{
+  "_id": {
+    "$oid": "6562dd28a3e02dd20f17a7e5"
+  },
+  "name": "Jasper Powers",
+  "email": "remikaguk@mailinator.com",
+  "password": "$2b$10$lWY6mVxCjDXBQxhsZ8S6fuEwLHJKUEtxIjVtWMHjA1XHWxprlS6we",
+  "thumb": "1700977960392-avatar.png",
+  "phone": "+1 (406) 253-8359",
+  "address": "Ut est quo et conseq",
+  "gender": "Female",
+  "date": {
+    "$date": "2023-11-26T05:52:40.572Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6562dd35a3e02dd20f17a850"
+  },
+  "name": "Gillian Jimenez",
+  "email": "sifahakif@mailinator.com",
+  "password": "$2b$10$noQ2ZSDWrpgdnzx6AM0tUOuPTqrH4IPOI.YJY4ms4DB07eZ3RmcYe",
+  "thumb": "1700977973504-avatar.png",
+  "phone": "+1 (662) 568-4869",
+  "address": "Rem qui voluptates a",
+  "gender": "Male",
+  "date": {
+    "$date": "2023-11-26T05:52:53.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6562dec648b8188aab60d4f0"
+  },
+  "name": "Julian Frye",
+  "email": "tynaj@mailinator.com",
+  "password": "$2b$10$4Fx2mjxDu24Z7nM3JEK6.OyqtVCa0mMUUxqbsXviTRoEqfboi6K3W",
+  "thumb": "1700978374523-avatar.png",
+  "phone": "+1 (614) 313-2628",
+  "gender": "Male",
+  "address": "Impedit repellendus",
+  "date": {
+    "$date": "2023-11-26T05:59:34.620Z"
+  },
+  "__v": 0
+}]

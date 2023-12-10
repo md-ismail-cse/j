@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "65117ff52b7a761c88b9dcc6"
+  },
+  "sendLocation": "Dhaka",
+  "endLocation": "CTG",
+  "price": 100,
+  "date": {
+    "$date": "2023-09-25T12:41:25.359Z"
+  },
+  "__v": 0,
+  "duration": 3
+},
+{
+  "_id": {
+    "$oid": "651197e52b7a761c88ba038b"
+  },
+  "sendLocation": "Dhaka",
+  "endLocation": "Rajshahi",
+  "price": 500,
+  "date": {
+    "$date": "2023-09-25T14:23:33.348Z"
+  },
+  "__v": 0,
+  "duration": 5
+},
+{
+  "_id": {
+    "$oid": "651836d63ef5188c608ada1f"
+  },
+  "sendLocation": "CTG",
+  "endLocation": "Rajshahi",
+  "price": 900,
+  "date": {
+    "$date": "2023-09-30T14:55:19.011Z"
+  },
+  "__v": 0,
+  "duration": 7
+}]
