@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Title from "../../components/title/Title";
 import {
   FormControl,
   IconButton,
@@ -9,9 +7,11 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Title from "../../components/title/Title";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,7 +49,7 @@ const Signup = () => {
         address,
       };
       axios
-        .post(`/api/admin/customers`, data, {
+        .post(`/api/admin/customer-reg`, data, {
           headers: {
             "Content-Type": "application/json",
           },

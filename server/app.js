@@ -1,19 +1,20 @@
-import express from "express";
 import cors from "cors";
-import branchRoute from "./routers/branches.route.js";
-import priceRoute from "./routers/prices.route.js";
-import contactRoute from "./routers/contacts.route.js";
+import dotenv from "dotenv";
+import express from "express";
+import connectDB from "./config/db.js";
+import adminAuth from "./middleware/adminAuth.js";
+import allAuth from "./middleware/allAuth.js";
 import userRoute from "./routers/admin.route.js";
+import adminLogin from "./routers/adminLogin.route.js";
+import branchRoute from "./routers/branches.route.js";
+import contactRoute from "./routers/contacts.route.js";
+import customerLogin from "./routers/customerLogin.route.js";
+import customerRegRoute from "./routers/customerRegistration.route.js";
 import customerRoute from "./routers/customers.route.js";
 import parcelRoute from "./routers/parcels.route.js";
+import priceRoute from "./routers/prices.route.js";
 import riderRoute from "./routers/rider.route.js";
-import adminLogin from "./routers/adminLogin.route.js";
-import customerLogin from "./routers/customerLogin.route.js";
 import riderLogin from "./routers/riderLogin.route.js";
-import dotenv from "dotenv";
-import connectDB from "./config/db.js";
-import allAuth from "./middleware/allAuth.js";
-import adminAuth from "./middleware/adminAuth.js";
 dotenv.config();
 connectDB();
 const app = express();
@@ -39,6 +40,7 @@ app.use("/api/admin/admin", adminAuth, userRoute);
 app.use("/api/admin/admin/:id", userRoute);
 
 // CUSTOMER API
+app.use("/api/admin/customer-reg", customerRegRoute);
 app.use("/api/admin/customers", allAuth, customerRoute);
 app.use("/api/admin/customers/:id", customerRoute);
 
