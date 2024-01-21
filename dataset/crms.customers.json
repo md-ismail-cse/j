@@ -90,4 +90,40 @@
     "$date": "2023-11-25T19:55:27.300Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a8efad62f03e61895c4e03"
+  },
+  "name": "Lance Gordon",
+  "email": "cipyjalon@mailinator.com",
+  "password": "$2b$10$GjnEJwCDSWC9KhqsDVFs4OuDdFOrEl3ZuALoJC.dnE7BckoRgti2C",
+  "thumb": "1705570221124-avatar.png",
+  "phone": "+1 (888) 467-3449",
+  "gender": "Male",
+  "address": "Illum Nam perspicia",
+  "emailVerification": true,
+  "date": {
+    "$date": "2024-01-18T09:30:21.217Z"
+  },
+  "__v": 0,
+  "emailOTP": 725432
+},
+{
+  "_id": {
+    "$oid": "65a904b964266f54d2d8a589"
+  },
+  "name": "Test",
+  "email": "test@yopmail.com",
+  "password": "$2b$10$Wz/mQ3ONxya53tFvxZEwGuTt9cjs749hDWPPaO9lckBTA.lrmqSMO",
+  "thumb": "1705575609088-avatar.png",
+  "phone": "+1 (406) 195-2304",
+  "gender": "Male",
+  "address": "Iure commodi archite",
+  "emailVerification": true,
+  "date": {
+    "$date": "2024-01-18T11:00:09.195Z"
+  },
+  "__v": 0,
+  "emailOTP": 570724
 }]
