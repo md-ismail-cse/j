@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Title from "../../components/title/Title";
 import { Avatar, Button } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "../../components/loader/Loader";
+import Title from "../../components/title/Title";
 
 const SingleParsel = () => {
   // GET PARCEL DETAILS

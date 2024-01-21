@@ -28,6 +28,13 @@ const customerSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  emailVerification: {
+    type: Boolean,
+    default: false,
+  },
+  emailOTP: {
+    type: Number,
+  },
   date: {
     type: Date,
     default: Date.now,

@@ -1,7 +1,8 @@
-import { Avatar } from "@mui/material";
+import { Alert, Avatar } from "@mui/material";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import Swal from "sweetalert2";
 import Loader from "../../components/loader/Loader";
 
 const HomeItems = () => {
@@ -57,8 +58,65 @@ const HomeItems = () => {
     fatchContacts();
   }, [contacts, id]);
 
+  const [otpLoading, setOtpLoading] = useState(false);
+  const otpSender = (e) => {
+    e.preventDefault();
+    setOtpLoading(true);
+    let data = {
+      id,
+    };
+    axios
+      .put("/api/customer-email-otp", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("cToken"),
+        },
+      })
+      .then((response) => {
+        setOtpLoading(false);
+        if (
+          response.data.message ===
+          "A verification code was send in your email."
+        ) {
+          Swal.fire({
+            icon: "success",
+            text: response.data.message,
+            showConfirmButton: false,
+            timer: 1000,
+          }).then(() => (window.location.href = "/profile/email-verification"));
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.data.message,
+          });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Update field!",
+        });
+      });
+  };
+
   return (
     <>
+      {customer.emailVerification === false && (
+        <>
+          {otpLoading ? (
+            <Loader />
+          ) : (
+            <Alert severity="warning" className="otpLink">
+              <Link to="/profile/email-verification" onClick={otpSender}>
+                Please, complete your email varification. Click for OTP
+              </Link>
+            </Alert>
+          )}
+        </>
+      )}
+
       {loading ? (
         <div className="dashboardItems">
           <Link to="/profile">

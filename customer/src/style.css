@@ -154,6 +154,13 @@ a {
   border-radius: 5px;
   border: 1px solid #c0c0c0;
 }
+.otpLink {
+  margin-bottom: 20px;
+}
+.otpLink a:hover {
+  color: #09b5e4;
+  text-decoration: underline;
+}
 .navbar .icons {
   display: flex;
   align-items: center;

@@ -11,6 +11,7 @@ import contactRoute from "./routers/contacts.route.js";
 import customerLogin from "./routers/customerLogin.route.js";
 import customerRegRoute from "./routers/customerRegistration.route.js";
 import customerRoute from "./routers/customers.route.js";
+import emailOTP from "./routers/emailOTP.route.js";
 import parcelRoute from "./routers/parcels.route.js";
 import priceRoute from "./routers/prices.route.js";
 import riderRoute from "./routers/rider.route.js";
@@ -57,6 +58,7 @@ app.use("/api/admin/adminlogin", adminLogin);
 
 // CUSTOMER LOGIN API
 app.use("/api/admin/customerlogin", customerLogin);
+app.use("/api/customer-email-otp", emailOTP);
 
 // DELIVERY MAN LOGIN API
 app.use("/api/admin/riderlogin", riderLogin);

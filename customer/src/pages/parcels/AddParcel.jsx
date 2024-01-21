@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import Title from "../../components/title/Title";
 import {
   FormControl,
   FormControlLabel,
@@ -11,8 +9,10 @@ import {
   TextField,
 } from "@mui/material";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Loader from "../../components/loader/Loader";
+import Title from "../../components/title/Title";
 
 const AddParcel = () => {
   const [sendLocation, setSendLocation] = useState("");
@@ -86,7 +86,7 @@ const AddParcel = () => {
     }
 
     // Length variant price
-    if (length !== 0) {
+    if (length >= 0) {
       setLengthPrice(length * 5);
     }
 
