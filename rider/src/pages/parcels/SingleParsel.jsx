@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Title from "../../components/title/Title";
-import { Avatar, Button } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
+import { Avatar, Button, TextField } from "@mui/material";
 import axios from "axios";
-import Loader from "../../components/loader/Loader";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loader from "../../components/loader/Loader";
+import Title from "../../components/title/Title";
 
 const SingleParsel = () => {
   // GET PARCEL DETAILS
@@ -112,6 +112,96 @@ const SingleParsel = () => {
           });
       }
     });
+  };
+
+  // Delivery OTP System
+  const [otp, setOtp] = useState("");
+
+  // OTP sender
+
+  const [otpLoading, setOtpLoading] = useState(false);
+  const otpSender = (e) => {
+    e.preventDefault();
+    setOtpLoading(true);
+    let data = {
+      id,
+    };
+    axios
+      .put("/api/delivery-otp", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("rToken"),
+        },
+      })
+      .then((response) => {
+        setOtpLoading(false);
+        if (
+          response.data.message ===
+          "A OTP verification code was send in your email."
+        ) {
+          Swal.fire({
+            icon: "success",
+            text: response.data.message,
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.data.message,
+          });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Update field!",
+        });
+      });
+  };
+
+  const otpSubmit = (e) => {
+    e.preventDefault();
+    setOtpLoading(true);
+    let data = {
+      id,
+      otp,
+    };
+    axios
+      .put("/api/delivery-otp", data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("rToken"),
+        },
+      })
+      .then((response) => {
+        setOtpLoading(false);
+        if (
+          response.data.message === "Delivery OTP verification successfull."
+        ) {
+          Swal.fire({
+            icon: "success",
+            text: response.data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.data.message,
+          });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Update field!",
+        });
+      });
   };
 
   return (
@@ -309,11 +399,7 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Name:</th>
-                          <td>
-                            <Link to={"/riders/" + picRider._id}>
-                              {picRider.name}
-                            </Link>
-                          </td>
+                          <td>{picRider.name}</td>
                         </tr>
                         <tr>
                           <th>Email:</th>
@@ -360,11 +446,7 @@ const SingleParsel = () => {
                         </tr>
                         <tr>
                           <th>Name:</th>
-                          <td>
-                            <Link to={"/riders/" + dlvRider._id}>
-                              {dlvRider.name}
-                            </Link>
-                          </td>
+                          <td>{dlvRider.name}</td>
                         </tr>
                         <tr>
                           <th>Email:</th>
@@ -408,14 +490,38 @@ const SingleParsel = () => {
                 <div className="parcelBox">
                   <h4>Actions</h4>
                   <div className="form-box">
-                    <Button
-                      variant="contained"
-                      size="small"
-                      onClick={() => submitHandler("Delivered")}
-                    >
-                      Delivery
-                    </Button>
+                    <>
+                      {parcel.deliveryVerification === false ? (
+                        <form className="form" onSubmit={otpSubmit}>
+                          <TextField
+                            required
+                            fullWidth
+                            label="Enter OTP"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                          />
+
+                          <input type="submit" className="btnPrimary" />
+                          {otpLoading ? (
+                            <Loader />
+                          ) : (
+                            <Link className="btnPrimary" onClick={otpSender}>
+                              Re-sent
+                            </Link>
+                          )}
+                        </form>
+                      ) : (
+                        <Button
+                          variant="contained"
+                          size="small"
+                          onClick={() => submitHandler("Delivered")}
+                        >
+                          Delivery
+                        </Button>
+                      )}
+                    </>
                   </div>
+                  <div className="form-box"></div>
                 </div>
               )}
             </div>

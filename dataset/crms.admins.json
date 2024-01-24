@@ -16,38 +16,6 @@
 },
 {
   "_id": {
-    "$oid": "65110d60a9074d980e303f5a"
-  },
-  "name": "Kareem Snyder",
-  "email": "hydyb@mailinator.com",
-  "password": "$2b$10$YDgy/l8Qsi.BtZxtjSuygupv2lWV2n84ujFYSc0f7LL2368pGGnfe",
-  "thumb": "1695616351982-avatar.png",
-  "phone": "+1 (989) 246-1622",
-  "address": "A sint odio quos vol",
-  "date": {
-    "$date": "2023-09-25T04:32:32.073Z"
-  },
-  "__v": 0,
-  "gender": "Mane"
-},
-{
-  "_id": {
-    "$oid": "65110d64a9074d980e303f64"
-  },
-  "name": "Clark Carlson",
-  "email": "zysema@mailinator.com",
-  "password": "$2b$10$d4h.5SD12c0SFVrnmwrEXeRLEhXG3ffQrQ.23PWT7qpVGnEDYM2WC",
-  "thumb": "1695616356430-avatar.png",
-  "phone": "+1 (196) 852-1192",
-  "address": "Laboris nostrud dolo",
-  "date": {
-    "$date": "2023-09-25T04:32:36.515Z"
-  },
-  "__v": 0,
-  "gender": "Male"
-},
-{
-  "_id": {
     "$oid": "65110d69a9074d980e303f6c"
   },
   "name": "Cruz Sears",

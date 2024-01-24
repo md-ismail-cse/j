@@ -1,6 +1,6 @@
 import express from "express";
 import nodemailer from "nodemailer";
-import Customers from "../models/customer.model.js";
+import Parcels from "../models/parcel.model.js";
 const router = express.Router();
 
 // email config
@@ -23,34 +23,34 @@ router.put("/", async (req, res) => {
     const otp = Number(req.body.otp);
 
     try {
-      await Customers.findById(id).then(async (customer) => {
-        if (customer.emailOTP === otp) {
-          await Customers.findByIdAndUpdate(
+      await Parcels.findById(id).then(async (parcel) => {
+        if (parcel.deliveryOTP === otp) {
+          await Parcels.findByIdAndUpdate(
             id,
-            { emailVerification: true },
+            { deliveryVerification: true },
             {
               useFindAndModify: false,
             }
           )
             .then((data) => {
-              res.json({ message: "Email verification successfull." });
+              res.json({ message: "Delivery OTP verification successfull." });
             })
             .catch((err) => {
-              res.json({ message: "Email verification failed." });
+              res.json({ message: "Delivery OTP verification failed." });
             });
         } else {
           res.json({ message: "OTP doesn't match!" });
         }
       });
     } catch (error) {
-      res.json({ message: "User doesn't exist!" });
+      res.json({ message: "Parcel doesn't found!" });
     }
   } else {
     const OTP = Math.floor(100000 + Math.random() * 900000);
 
-    await Customers.findByIdAndUpdate(
+    await Parcels.findByIdAndUpdate(
       id,
-      { emailOTP: OTP },
+      { deliveryOTP: OTP },
       {
         useFindAndModify: false,
       }
@@ -58,11 +58,11 @@ router.put("/", async (req, res) => {
       .then((data) => {
         const mailOptions = {
           from: "afrinsultana5555@gmail.com",
-          to: data.email,
-          subject: "USB Express Email OTP Verification",
+          to: data.recEmail,
+          subject: "USB Express Delivery OTP Verification",
           html: `<div>
-            <h3>Dear ${data.name},</h3>
-            <h3>Your OTP verification code is:</h3>
+            <h3>Dear ${data.recName},</h3>
+            <h3>Your Delivery OTP verification code is:</h3>
             <p><span style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:22px;line-height:36px;font-weight:bold;letter-spacing:5px;padding:10px 25px;background-color:#f2f2f2;">${OTP}</span></p>
             <h3>Thank you,</h3>
             <h2>USB Express</h2>
@@ -74,9 +74,9 @@ router.put("/", async (req, res) => {
             console.log("error", error);
             res.status(400).json({ error: "email not send" });
           } else {
-            res
-              .status(200)
-              .json({ message: "A verification code was send in your email." });
+            res.status(200).json({
+              message: "A OTP verification code was send in your email.",
+            });
           }
         });
       })

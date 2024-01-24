@@ -61,56 +61,6 @@
 },
 {
   "_id": {
-    "$oid": "6562500dcd0c51bb5a0e2284"
-  },
-  "name": "Savannah Jensen",
-  "email": "zywogida@mailinator.com",
-  "password": "$2b$10$fmGsdII.8VeF4QlsXQmpQ..bslTUj9FdePEoCZGKz453GKFfip35.",
-  "thumb": "1700941836923-avatar.png",
-  "phone": "+1 (372) 266-4271",
-  "address": "Voluptas pariatur V",
-  "gender": "Male",
-  "date": {
-    "$date": "2023-11-25T19:50:37.006Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6562512fcd0c51bb5a0e2ddb"
-  },
-  "name": "Shana Gillespie",
-  "email": "qikyn@mailinator.com",
-  "password": "$2b$10$x9pXFj.viIAka3bFkrg9.ev9JtLCc7ZiIK3WHuK05AnYs5SJmCIxW",
-  "thumb": "1700942127207-avatar.png",
-  "phone": "+1 (524) 836-1379",
-  "address": "Repellendus Non ver",
-  "gender": "Female",
-  "date": {
-    "$date": "2023-11-25T19:55:27.300Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "65a8efad62f03e61895c4e03"
-  },
-  "name": "Lance Gordon",
-  "email": "cipyjalon@mailinator.com",
-  "password": "$2b$10$GjnEJwCDSWC9KhqsDVFs4OuDdFOrEl3ZuALoJC.dnE7BckoRgti2C",
-  "thumb": "1705570221124-avatar.png",
-  "phone": "+1 (888) 467-3449",
-  "gender": "Male",
-  "address": "Illum Nam perspicia",
-  "emailVerification": true,
-  "date": {
-    "$date": "2024-01-18T09:30:21.217Z"
-  },
-  "__v": 0,
-  "emailOTP": 725432
-},
-{
-  "_id": {
     "$oid": "65a904b964266f54d2d8a589"
   },
   "name": "Test",
@@ -126,4 +76,22 @@
   },
   "__v": 0,
   "emailOTP": 570724
+},
+{
+  "_id": {
+    "$oid": "65ae66262609fe7d09c0606f"
+  },
+  "name": "Leonard Albert",
+  "email": "project@yopmail.com",
+  "password": "$2b$10$hqhxtTgJ99Nb38F2y6AdlOGzVX6BXbxm7vtHSbucbeH5BoaZiV6g6",
+  "thumb": "1705928230199-avatar.png",
+  "phone": "+1 (314) 386-1948",
+  "gender": "Male",
+  "address": "Chittagong",
+  "emailVerification": false,
+  "date": {
+    "$date": "2024-01-22T12:57:10.263Z"
+  },
+  "__v": 0,
+  "emailOTP": 975944
 }]

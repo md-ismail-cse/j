@@ -85,6 +85,13 @@ const parcelSchema = mongoose.Schema({
     type: String,
     default: "NaN",
   },
+  deliveryVerification: {
+    type: Boolean,
+    default: false,
+  },
+  deliveryOTP: {
+    type: Number,
+  },
 });
 
 const Parcels = mongoose.model("Parcels", parcelSchema);

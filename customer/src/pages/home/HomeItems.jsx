@@ -82,7 +82,7 @@ const HomeItems = () => {
             icon: "success",
             text: response.data.message,
             showConfirmButton: false,
-            timer: 1000,
+            timer: 1500,
           }).then(() => (window.location.href = "/profile/email-verification"));
         } else {
           Swal.fire({
